@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    Poker poker = new Poker();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,23 +22,26 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recycler);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new PokerAdapter());
     }
 
     class PokerAdapter extends RecyclerView.Adapter<PokerAdapter.PokerHolder>{
         @NonNull
         @Override
         public PokerHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return null;
+            return new PokerHolder(getLayoutInflater().inflate(R.layout.poker_row , parent , false));
         }
 
         @Override
         public void onBindViewHolder(@NonNull PokerHolder holder, int position) {
-
+            holder.pokerView.setText(poker.cards[position].get());
+         //  if(position % 13 == 0){
+          //  }
         }
 
         @Override
         public int getItemCount() {
-            return 0;
+            return poker.cards.length;
         }
 
         class PokerHolder extends RecyclerView.ViewHolder{
