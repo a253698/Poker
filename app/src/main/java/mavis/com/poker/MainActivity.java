@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        poker.shuffle();
         RecyclerView recyclerView = findViewById(R.id.recycler);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -51,5 +52,10 @@ public class MainActivity extends AppCompatActivity {
                 pokerView = itemView.findViewById(R.id.tv_poker);
             }
         }
+
+//        public void shuffle(View view){
+//            poker.shuffle();
+//        }
+
     }
 }

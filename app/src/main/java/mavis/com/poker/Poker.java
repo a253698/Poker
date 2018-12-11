@@ -13,7 +13,7 @@ public class Poker {
     }
 
     public void shuffle() {
-        for (int b = 1; b <= 52; b++) {
+        for (int b = 0; b < 52; b++) {
             int r = new Random().nextInt(52);
             Card temp = cards[b];
             cards[b] = cards[r];
